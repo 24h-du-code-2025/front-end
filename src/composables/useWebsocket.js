@@ -8,7 +8,7 @@ export function initSocket() {
 
     if(!socket) {
 
-        socket = io("http://192.168.5.1:5000", {
+        socket = io(import.meta.env.VITE_BACK_END_URL, {
             auth: {
                 token: getClientToken(),
             },
