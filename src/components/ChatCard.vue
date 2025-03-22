@@ -13,6 +13,7 @@ const cardTypes = {
     message: MessageCard,
     spa_details: SpaCard,
     spa_list: SpaList,
+    // events_list: SpaList,
 };
 
 const props = defineProps({
@@ -30,7 +31,7 @@ const cardType = computed(() => cardTypes[props.message.type]);
 
 function makeAction(data) {
 
-    switch(cardType.value) {
+    switch(props.message.type) {
 
         case 'spa_list':
 
