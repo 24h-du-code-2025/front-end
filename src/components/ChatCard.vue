@@ -8,12 +8,13 @@ import { sendChat } from '@/composables/useClient';
 import MessageCard from '@/components/MessageCard.vue';
 import SpaCard from '@/components/SpaCard.vue';
 import SpaList from '@/components/SpaList.vue';
+import EventsList from '@/components/EventsList.vue';
 
 const cardTypes = {
     message: MessageCard,
     spa_details: SpaCard,
     spa_list: SpaList,
-    // events_list: SpaList,
+    events_list: EventsList,
 };
 
 const props = defineProps({
@@ -48,5 +49,7 @@ function makeAction(data) {
       :message="message"
       :direction="direction"
       @click="makeAction"
+      v-if="cardType"
     />
+    <template v-else>{{ message }}</template>
 </template>

@@ -31,7 +31,7 @@
     Luc Mergault
     <time class="text-xs opacity-70 text-gray-600">{{ createdHour }}</time>
   </div>
-  <ChatCard :message="message" :direction="direction" />
+  <ChatCard :message="message" :direction="direction" class="mt-2" />
 </div>
 
 <div class="chat chat-end" v-else-if="direction == 'right'">
@@ -44,6 +44,6 @@
     Luc Mergault
     <time class="text-xs opacity-70 text-gray-600">{{ createdHour }}</time>
   </div>
-  <ChatCard :message="message" :direction="direction" />
+  <ChatCard :message="message" :direction="direction" class="mt-2" />
 </div>
 </template>
