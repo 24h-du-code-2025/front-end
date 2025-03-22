@@ -3,8 +3,6 @@
 
     import { startClient, clientIsLoading } from '@/composables/useClient';
 
-    import ChatMessage from '@/components/ChatMessage.vue';
-
     const props = defineProps({
         messages: Array
     })

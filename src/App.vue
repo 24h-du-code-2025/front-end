@@ -2,13 +2,20 @@
 
   import { ref } from 'vue'
 
-  import { isLogged, sendChat, getClientMessages } from '@/composables/useClient';
+  import { isLogged, sendChat, getClientMessages, catchChats } from '@/composables/useClient';
 
   import ChatBar from '@/components/ChatBar.vue';
   import ChatMessages from '@/components/ChatMessages.vue';
   import StartScreen from '@/components/StartScreen.vue';
 
   const value = ref('');
+
+  catchChats(() => {
+
+    const chatMessages = document.querySelector('.chat-messages');
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  });
 </script>
 
 <template>

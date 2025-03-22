@@ -8,6 +8,7 @@ export const clientIsLoading = ref(false);
 export const clientToken = ref(null);
 export const clientMessages = ref([]);
 export const activeQuestion = ref(null);
+export const listenChatsCallbacks = ref([]);
 
 export const isLogged = computed(() => clientToken.value !== null && clientIsLoading.value === false);
 
@@ -46,10 +47,18 @@ export function listenChats(callback = null) {
 
         clientMessages.value = messages;
 
-        if (typeof callback === 'function') {
+        setTimeout(() => {
 
-            callback(clientMessages.value);
-        }
+            if (typeof callback === 'function') {
+
+                callback(clientMessages.value);
+            }
+
+            listenChatsCallbacks.value.forEach((callback) => {
+
+                callback(clientMessages.value);
+            });
+        }, 10);
     });
 }
 
@@ -78,4 +87,8 @@ export function startClient() {
 
         clientIsLoading.value = false;
     });
+}
+export function catchChats(callback) {
+
+    listenChatsCallbacks.value.push(callback);
 }
