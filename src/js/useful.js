@@ -5,23 +5,10 @@ export function generateRandomToken() {
     return Math.random().toString(36).substr(2);
 }
 
-// Function to standardize message format
-export function formatMessage(message) {
+// Function to get random color name
+export function getRandomColorName() {
 
-    return {
-        id: message.id ?? null,
-        message: message.message ?? null,
-        timestamps: {
-            created: Date.now(),
-        },
-        author: {
-            type: message.from ?? null,
-            imageUrl: 'https://i.luwe.fr/XKaRXJVYlv.png',
-            names: {
-                first: '',
-                last: '',
-                full: 'Luc Mergault',
-            }
-        }
-    };
+    const colors = ['amber', 'teal', 'pink', 'purple', 'yellow', 'blue', 'rose', 'emerald', 'red', 'indigo', 'orange', 'cyan'];
+
+    return colors[Math.floor(Math.random() * colors.length)];
 }

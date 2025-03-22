@@ -10,12 +10,6 @@
 
 <template>
   <div>
-    <ChatMessage v-for="message in messages"
-      :author-name="message.author.names.full"
-      :author-image-url="message.author.imageUrl"
-      :message="message.message"
-      :direction="message.author.type == 'user' ? 'right' : 'left'"
-      :time-created="message.timestamps.created"
-    />
+    <ChatMessage v-for="message in messages" :message="message" :direction="message.from == 'user' ? 'right' : 'left'" />
   </div>
 </template>

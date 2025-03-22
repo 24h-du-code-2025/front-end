@@ -1,12 +1,13 @@
 
 import { computed, ref } from 'vue';
 
-import { generateRandomToken, formatMessage } from "@/js/useful";
+import { generateRandomToken } from "@/js/useful";
 import { sendMessage, onMessage } from "@/composables/useWebsocket";
 
 export const clientIsLoading = ref(false);
 export const clientToken = ref(null);
 export const clientMessages = ref([]);
+export const activeQuestion = ref(null);
 
 export const isLogged = computed(() => clientToken.value !== null && clientIsLoading.value === false);
 
@@ -43,7 +44,7 @@ export function listenChats(callback = null) {
 
     onMessage('update_history', (messages) => {
 
-        clientMessages.value = messages.map((message) => formatMessage(message));
+        clientMessages.value = messages;
 
         if (typeof callback === 'function') {
 
@@ -52,12 +53,26 @@ export function listenChats(callback = null) {
     });
 }
 
+// export function listenQuestion(callback = null) {
+
+//     onMessage('ask_question', (question) => {
+
+//         activeQuestion.value = formatQuestion(question);
+
+//         if (typeof callback === 'function') {
+
+//             callback(activeQuestion.value);
+//         }
+//     });
+// }
+
 export function startClient() {
 
     clientIsLoading.value = true;
 
     getClientToken();
     listenChats();
+    // listenQuestion();
 
     onMessage('connect', () => {
 
