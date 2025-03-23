@@ -10,6 +10,7 @@ import SpaCard from '@/components/SpaCard.vue';
 import SpaList from '@/components/SpaList.vue';
 import EventsList from '@/components/EventsList.vue';
 import BookingCard from '@/components/BookingCard.vue';
+import ProposeIntents from '@/components/ProposeIntents.vue';
 
 const cardTypes = {
     message: MessageCard,
@@ -17,6 +18,7 @@ const cardTypes = {
     spa_list: SpaList,
     events_list: EventsList,
     reservation_details: BookingCard,
+    propose_intents: ProposeIntents,
 };
 
 const props = defineProps({
@@ -39,6 +41,11 @@ function makeAction(data) {
         case 'spa_list':
 
             sendChat('Donne moi le détail du spa "' + data.name + '"');
+        break;
+
+        case 'propose_intents':
+
+            sendChat(data.prompt);
         break;
     }
 }
