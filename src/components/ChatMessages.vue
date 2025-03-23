@@ -7,38 +7,9 @@
   import ChatMessage from '@/components/ChatMessage.vue';
 
 
-  import base from "@/assets/moods/base.jpeg"
-  import cook from "@/assets/moods/cook.jpeg"
-  import idea from "@/assets/moods/idea.jpeg"
-  import meteo from "@/assets/moods/meteo.jpeg"
-  import spa from "@/assets/moods/spa.jpeg"
-  import thinking from "@/assets/moods/thinking.jpeg"
-  import tourism from "@/assets/moods/tourism.jpeg"
-  import note from "@/assets/moods/note.jpeg"
-  import {ref} from "vue";
-  import {listenMood} from "@/composables/useClient.js";
-
-  const moods = {
-    note,
-    base,
-    cook,
-    idea,
-    meteo,
-    spa,
-    thinking,
-    tourism
-  }
-
-
   const props = defineProps({
     messages: Array
   });
-
-
-  const currentMood = ref("base")
-
-
-  listenMood(mood => currentMood.value = mood)
 
   // const messages = computed(() => props.messages.slice(props.messages.length - 2, props.messages.length));
 </script>
@@ -51,7 +22,6 @@
         <span id="toggle-circle" class="inline-block w-5 h-5 transform translate-x-1 bg-white rounded-full transition-transform duration-300 ease-in-out shadow-md"></span>
       </button>
     </div> -->
-    <img class="bot-avatar" :src="moods[currentMood]" alt="" v-if="messages.length > 0">
 
     <StartChats v-if="messages.length <= 0" />
     <ChatMessage v-for="message in messages" :message="message" :direction="message.from == 'user' ? 'right' : 'left'" v-else />
@@ -59,15 +29,4 @@
 </template>
 
 <style scoped>
-.bot-avatar{
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  position: fixed;
-  left: 20px;
-  top: 20px;
-  z-index: 1000;
-  border: 3px solid black;
-  border-radius: 50%;
-}
 </style>

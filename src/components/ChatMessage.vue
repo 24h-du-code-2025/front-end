@@ -28,8 +28,8 @@
     </div>
   </div>
   <div class="chat-header text-gray-800 font-medium">
-    Luc Mergault
-    <time class="text-xs opacity-70 text-gray-600">{{ createdHour }}</time>
+    <!-- Luc Mergault
+    <time class="text-xs opacity-70 text-gray-600">{{ createdHour }}</time> -->
   </div>
   <ChatCard :message="message" :direction="direction" class="mt-2" />
 </div>
@@ -41,8 +41,8 @@
     </div>
   </div>
   <div class="chat-header text-gray-800 font-medium">
-    Luc Mergault
-    <time class="text-xs opacity-70 text-gray-600">{{ createdHour }}</time>
+    <!-- Luc Mergault
+    <time class="text-xs opacity-70 text-gray-600">{{ createdHour }}</time> -->
   </div>
   <ChatCard :message="message" :direction="direction" class="mt-2" />
 </div>

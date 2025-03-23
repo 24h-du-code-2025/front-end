@@ -36,7 +36,7 @@
 
   .chat-messages {
 
-    height: calc(100vh - (56px + 2rem));
+    height: calc(100vh - (80px + 2rem));
     padding: 2rem 2rem 0 2rem;
     overflow-y: auto;
 
