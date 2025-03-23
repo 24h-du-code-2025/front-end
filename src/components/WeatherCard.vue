@@ -23,11 +23,23 @@ const weatherLabel = computed(() => {
             return 'Orage';
     }
 });
+const weatherColors = computed(() => {
+    switch (weatherDetails.value.weather_type) {
+        case 'sunny':
+            return ['from-amber-400', 'to-amber-500', 'border-blue-300'];
+        case 'cloudy':
+            return ['from-zinc-300', 'to-zinc-400', 'border-zinc-500'];
+        case 'rain':
+          return ['from-blue-600', 'to-blue-800', 'border-blue-300'];
+        case 'storm':
+          return ['from-zinc-600', 'to-zinc-900', 'border-yellow-500'];
+    }
+});
 </script>
 
 <template>
 
-<div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg overflow-hidden max-w-sm w-full border-2 border-blue-300">
+<div class="bg-gradient-to-br rounded-xl shadow-lg overflow-hidden max-w-sm w-full border-2 " :class="weatherColors">
 
     <!-- Section principale -->
     <div class="relative p-6 text-center">

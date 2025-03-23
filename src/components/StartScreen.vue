@@ -1,7 +1,8 @@
 
 <script setup>
 
-    import { startClient, clientIsLoading } from '@/composables/useClient';
+    import {
+      startClient, clientIsLoading } from '@/composables/useClient';
 
     const props = defineProps({
         messages: Array
@@ -86,3 +87,14 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+.bot-avatar{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+</style>

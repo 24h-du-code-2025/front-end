@@ -60,12 +60,14 @@
 
 <style scoped>
 .bot-avatar{
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 20px;
+  top: 20px;
   z-index: 1000;
+  border: 3px solid black;
+  border-radius: 50%;
 }
 </style>
