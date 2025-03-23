@@ -48,7 +48,14 @@ const recording = ref(false)
 
 function toggleRecord(){
   if(recording.value){
-    stopRecording()
+    stopRecording().then(raw => {
+      try {
+        const data = JSON.parse(raw)
+        message.value = data.text
+      } catch (e){
+        console.log(e)
+      }
+    })
     recording.value = false
   } else {
     startRecording()

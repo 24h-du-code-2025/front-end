@@ -67,56 +67,63 @@ export function startRecording() {
     });
 }
 
+let resolve
 
 export function stopRecording() {
-    console.log("stopButton clicked");
+   return new Promise(res => {
+       resolve = res
+       console.log("stopButton clicked");
 
 
-    rec.stop();
+       rec.stop();
 
-    //stop microphone access
-    gumStream.getAudioTracks()[0].stop();
+       //stop microphone access
+       gumStream.getAudioTracks()[0].stop();
 
-    //create the wav blob and pass it on to createDownloadLink
-    rec.exportWAV(createDownloadLink);
+       //create the wav blob and pass it on to createDownloadLink
+       rec.exportWAV(createDownloadLink);
+   })
 }
 
 function createDownloadLink(blob) {
 
-    var url = URL.createObjectURL(blob);
-    var au = document.createElement('audio');
-    var li = document.createElement('li');
-    var link = document.createElement('a');
-
-    //name of .wav file to use during upload and download (without extendion)
-    var filename = new Date().toISOString();
-
-    //add controls to the <audio> element
-    au.controls = true;
-    au.src = url;
-
-    //save to disk link
-    link.href = url;
-    link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
-    link.innerHTML = "Save to disk";
 
 
-    console.log(link);
+        var url = URL.createObjectURL(blob);
+        var au = document.createElement('audio');
+        var li = document.createElement('li');
+        var link = document.createElement('a');
 
-    //upload link
-    var upload = document.createElement('a');
-    upload.href="#";
-    upload.innerHTML = "Upload";
-    setTimeout(function(event){
-        var xhr=new XMLHttpRequest();
-        xhr.onload=function(e) {
-            if(this.readyState === 4) {
-                console.log("Server returned: ",e.target.responseText);
-            }
-        };
-        var fd=new FormData();
-        fd.append("audio",blob, filename);
-        xhr.open("POST",import.meta.env.VITE_BACK_END_URL+"/convert-speech-to-text",true);
-        xhr.send(fd);
-    }, 100)
+        //name of .wav file to use during upload and download (without extendion)
+        var filename = new Date().toISOString();
+
+        //add controls to the <audio> element
+        au.controls = true;
+        au.src = url;
+
+        //save to disk link
+        link.href = url;
+        link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
+        link.innerHTML = "Save to disk";
+
+
+        console.log(link);
+
+        //upload link
+        var upload = document.createElement('a');
+        upload.href="#";
+        upload.innerHTML = "Upload";
+        setTimeout(function(event){
+            var xhr=new XMLHttpRequest();
+            xhr.onload=function(e) {
+                if(this.readyState === 4) {
+                    console.log("Server returned: ",e.target.responseText);
+                    resolve(e.target.responseText)
+                }
+            };
+            var fd=new FormData();
+            fd.append("audio",blob, filename);
+            xhr.open("POST",import.meta.env.VITE_BACK_END_URL+"/convert-speech-to-text",true);
+            xhr.send(fd);
+        }, 100)
 }
