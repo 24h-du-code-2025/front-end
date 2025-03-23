@@ -14,6 +14,9 @@ export default defineConfig({
     port: 8080,
     allowedHosts: true,
   },
+  define: {
+    global: {},
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

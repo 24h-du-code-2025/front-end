@@ -11,6 +11,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
     "daisyui": "^5.0.9",
+    "inline-worker": "^1.1.0",
     "marked": "^15.0.7",
     "socket.io-client": "^4.8.1",
     "tailwindcss": "^4.0.15",

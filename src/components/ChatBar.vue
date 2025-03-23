@@ -13,6 +13,7 @@
   import tourism from "@/assets/moods/tourism.jpeg"
   import note from "@/assets/moods/note.jpeg"
   import {listenMood} from "@/composables/useClient.js";
+    import {startRecording, stopRecording} from "@/js/app.js";
 
   const moods = {
     note,
@@ -42,7 +43,18 @@ const currentMood = ref("base")
     }
 
 
-listenMood(mood => currentMood.value = mood)
+listenMood(mood => currentMood.value = mood);
+const recording = ref(false)
+
+function toggleRecord(){
+  if(recording.value){
+    stopRecording()
+    recording.value = false
+  } else {
+    startRecording()
+    recording.value = true
+  }
+}
 </script>
 
 <template>
@@ -59,6 +71,9 @@ listenMood(mood => currentMood.value = mood)
                 v-on:keyup.enter="sendMessage"
             />
         </div>
+
+      <button @click="toggleRecord">{{recording?"Stop":"Start"}}</button>
+
         <button
             class="inline-flex items-center justify-center cursor-pointer rounded-r-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-center text-white shadow-lg transform transition duration-300 hover:scale-105 hover:from-pink-600 hover:to-purple-600 h-20 w-20"
             @click="sendMessage()"
