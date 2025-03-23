@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 
 import { generateRandomToken } from "@/js/useful";
-import { sendMessage, onMessage } from "@/composables/useWebsocket";
+import { sendMessage, onMessage, closeSocket } from "@/composables/useWebsocket";
 
 export const clientIsLoading = ref(false);
 export const clientToken = ref(null);
@@ -75,6 +75,22 @@ export function listenChats(callback = null) {
 //     });
 // }
 
+export function listenEnd(callback = null) {
+
+    onMessage('end_session', () => {
+
+        closeSocket();
+
+        setTimeout(() => {
+
+            clientToken.value = null;
+            clientMessages.value = [];
+
+            localStorage.removeItem('clientToken');
+        }, 10);
+    });
+}
+
 export function startClient() {
 
     clientIsLoading.value = true;
@@ -82,6 +98,7 @@ export function startClient() {
     getClientToken();
     listenChats();
     // listenQuestion();
+    listenEnd();
 
     onMessage('connect', () => {
 

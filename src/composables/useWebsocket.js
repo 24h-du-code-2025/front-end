@@ -20,6 +20,8 @@ export function initSocket() {
 export function closeSocket() {
 
     socket.close();
+
+    socket = null;
 }
 
 export function sendMessage(type, params = {}) {
