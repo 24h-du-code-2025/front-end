@@ -21,7 +21,7 @@ const props = defineProps({
       <h3 class="mt-2 font-bold text-gray-800 line-clamp-1">{{ eventDetails.title }}</h3>
       <p class="mt-1 text-xs text-gray-600 line-clamp-3">{{ eventDetails.description }}</p>
       <a class="mt-3 w-full px-3 py-1 text-xs font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700" :href="eventDetails.link">
-        Réserver
+        Plus d'infos
       </a>
     </div>
   </div>

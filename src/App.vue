@@ -1,6 +1,6 @@
 <script setup>
 
-  import { ref } from 'vue'
+  import { computed, ref } from 'vue'
 
   import { isLogged, sendChat, getClientMessages, catchChats } from '@/composables/useClient';
 
@@ -9,6 +9,7 @@
   import StartScreen from '@/components/StartScreen.vue';
 
   const value = ref('');
+  const messages = computed(() => getClientMessages());
 
   catchChats(() => {
 
@@ -24,8 +25,8 @@
 
     <StartScreen v-if="!isLogged" />
     <template v-if="isLogged">
-      <ChatMessages :messages="getClientMessages()" class="chat-messages" />
-      <ChatBar @send="(message) => sendChat(message)" class="chat-bar" />
+      <ChatMessages :messages="messages" class="chat-messages" :class="{full: messages.length <= 0}" />
+      <ChatBar @send="(message) => sendChat(message)" class="chat-bar" v-if="messages.length > 0" />
     </template>
   </div>
 
@@ -38,6 +39,11 @@
     height: calc(100vh - (56px + 2rem));
     padding: 2rem 2rem 0 2rem;
     overflow-y: auto;
+
+    &.full {
+
+      height: 100vh;
+    }
   }
 
   .chat-bar {
