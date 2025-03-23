@@ -1,14 +1,33 @@
 
 <script setup>
 
-  // import { computed } from 'vue';
+  import { ref } from 'vue';
+
+  import { listenMood } from '@/composables/useClient';
 
   import StartChats from '@/components/StartChats.vue';
   import ChatMessage from '@/components/ChatMessage.vue';
+  import ChatMessageWriting from '@/components/ChatMessageWriting.vue';
 
+  const mood = ref('base');
 
   const props = defineProps({
     messages: Array
+  });
+
+  listenMood((newMood) => {
+
+    mood.value = newMood;
+
+    if(mood.value == 'thinking') {
+
+      setTimeout(() => {
+
+        const chatMessages = document.querySelector('.chat-messages');
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 10);
+    }
   });
 
   // const messages = computed(() => props.messages.slice(props.messages.length - 2, props.messages.length));
@@ -25,6 +44,7 @@
 
     <StartChats v-if="messages.length <= 0" />
     <ChatMessage v-for="message in messages" :message="message" :direction="message.from == 'user' ? 'right' : 'left'" v-else />
+    <ChatMessageWriting v-if="mood == 'thinking'"/>
   </div>
 </template>
 
