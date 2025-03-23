@@ -9,12 +9,14 @@ import MessageCard from '@/components/MessageCard.vue';
 import SpaCard from '@/components/SpaCard.vue';
 import SpaList from '@/components/SpaList.vue';
 import EventsList from '@/components/EventsList.vue';
+import BookingCard from '@/components/BookingCard.vue';
 
 const cardTypes = {
     message: MessageCard,
     spa_details: SpaCard,
     spa_list: SpaList,
     events_list: EventsList,
+    reservation_details: BookingCard,
 };
 
 const props = defineProps({
