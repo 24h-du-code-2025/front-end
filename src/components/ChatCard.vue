@@ -11,6 +11,7 @@ import SpaList from '@/components/SpaList.vue';
 import EventsList from '@/components/EventsList.vue';
 import BookingCard from '@/components/BookingCard.vue';
 import ProposeIntents from '@/components/ProposeIntents.vue';
+import WeatherCard from '@/components/WeatherCard.vue';
 
 const cardTypes = {
     message: MessageCard,
@@ -19,6 +20,7 @@ const cardTypes = {
     events_list: EventsList,
     reservation_details: BookingCard,
     propose_intents: ProposeIntents,
+    meteo: WeatherCard,
 };
 
 const props = defineProps({
