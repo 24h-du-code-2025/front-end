@@ -91,6 +91,12 @@ export function listenEnd(callback = null) {
     });
 }
 
+
+export function listenMood(callback = null) {
+
+    setTimeout(()=>onMessage('set_mood', callback), 1000);
+}
+
 export function startClient() {
 
     clientIsLoading.value = true;
