@@ -47,7 +47,7 @@
 
         <!-- Information sur le Restaurant -->
         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition hover-bounce">
-            <button class="w-full h-full p-6 text-left cursor-pointer">
+            <button class="w-full h-full p-6 text-left cursor-pointer" @click="sendChat('Quels sont les restaurants à proximité ?')">
             <div class="flex flex-col items-center">
                 <div class="rounded-full bg-orange-100 p-4 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,7 +62,7 @@
 
         <!-- Information sur les Repas -->
         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition hover-bounce">
-            <button class="w-full h-full p-6 text-left cursor-pointer">
+            <button class="w-full h-full p-6 text-left cursor-pointer" @click="sendChat('Quels sont les types repas disponibles ?')">
             <div class="flex flex-col items-center">
                 <div class="rounded-full bg-red-100 p-4 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,7 +77,7 @@
 
         <!-- Information sur la Réservation -->
         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition hover-bounce">
-            <button class="w-full h-full p-6 text-left cursor-pointer">
+            <button class="w-full h-full p-6 text-left cursor-pointer" @click="sendChat('Je souhaiterais réserver une chambre')">
             <div class="flex flex-col items-center">
                 <div class="rounded-full bg-blue-100 p-4 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,7 +92,7 @@
 
         <!-- Information sur le Client -->
         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition hover-bounce">
-            <button class="w-full h-full p-6 text-left cursor-pointer">
+            <button class="w-full h-full p-6 text-left cursor-pointer" @click="sendChat('Je voudrais accéder à mon profil')">
                 <div class="flex flex-col items-center">
                 <div class="rounded-full bg-purple-100 p-4 mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
