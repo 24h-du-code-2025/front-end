@@ -1,29 +1,41 @@
-# front-end
+# Frontend - AI ChatBot
 
-This template should help get you started developing with Vue 3 in Vite.
+Frontend implementation of the AI ChatBot that won the **["24 Heures du Code"](https://les24hducode.fr/)** hackathon.
 
-## Recommended IDE Setup
+## 🏆 Objective
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+The primary goal of the hackathon was to develop a chatbot to automate the reception process at **Hotel California**. Instead of clients having to ask hotel managers for information and make requests manually, they could interact with an AI-powered chatbot that handles basic management tasks seamlessly.
 
-## Customize configuration
+The hackathon organizers provided a pre-developed **REST API** for the Hotel California system. The chatbot's objective was to interpret user requests in natural language and translate them into appropriate API calls.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🖥️ Application UI
 
-## Project Setup
+![chat_1.png](assets/chat_1.png)
+![chat_5.png](assets/chat_5.png)
+![chat_7.png](assets/chat_7.png)
 
-```sh
-yarn
-```
+Chatbot usage scenarios can be found in the [assets](assets) directory.  
+A video demonstration of the chatbot is available [here](https://youtu.be/9wGZzOV42CM).
 
-### Compile and Hot-Reload for Development
 
-```sh
-yarn dev
-```
+## 🚀 Run Application
 
-### Compile and Minify for Production
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/24h-du-code-2025/frontend.git <directory>
+   ```
 
-```sh
-yarn build
-```
+2. **Navigate to the repository directory:**
+   ```bash
+   cd <directory>
+   ```
+
+3. **Install dependencies:**
+    ```bash
+   npm install
+    ```
+
+4. **Start the development server:**
+    ```bash
+   npm run dev
+    ```
