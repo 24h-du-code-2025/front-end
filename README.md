@@ -10,9 +10,12 @@ The hackathon organizers provided a pre-developed **REST API** for the Hotel Cal
 
 ## 🖥️ Application UI
 
-![chat_1.png](assets/chat_1.png)
-![chat_5.png](assets/chat_5.png)
-![chat_7.png](assets/chat_7.png)
+<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+  <img src="assets/chat_1.png" alt="Chat 1" width="300" />
+  <img src="assets/chat_5.png" alt="Chat 5" width="300" />
+  <img src="assets/chat_7.png" alt="Chat 7" width="300" />
+</div>
+
 
 Chatbot usage scenarios can be found in the [assets](assets) directory.  
 A video demonstration of the chatbot is available [here](https://youtu.be/9wGZzOV42CM).
