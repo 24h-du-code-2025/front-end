@@ -14,6 +14,7 @@ The hackathon organizers provided a pre-developed **REST API** for the Hotel Cal
   <img src="assets/chat_1.png" alt="Chat 1" width="300" />
   <img src="assets/chat_5.png" alt="Chat 5" width="300" />
   <img src="assets/chat_7.png" alt="Chat 7" width="300" />
+  <img src="assets/chat_10.png" alt="Chat 7" width="300" />
 </div>
 
 
